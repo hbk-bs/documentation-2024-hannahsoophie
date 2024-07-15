@@ -1,4 +1,4 @@
-This website is a documentation of my three projects for the digital design course, summer semester 2024. 
+This website is a documentation of my (Hannah Flintermann) three projects for the digital design course, summer semester 2024. 
 The projects all revolve around the topic of artifical Intelligence.
 
 Project 1: Omas Jugendwortübersetzer: https://omasjugendwortuebersetzer.netlify.app
