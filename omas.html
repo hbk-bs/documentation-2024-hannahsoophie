@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omas Youth Word Translator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for this subpage */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        nav {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 1; /* Ensure the nav menu is above the header */
+        }
+        .back-link {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333; /* Farbe des Textes anpassen */
+    }
+
+    .back-link img {
+        width: 30px; /* Passen Sie die Größe des Pfeil-Icons nach Bedarf an */
+        height: auto;
+        margin-right: 5px; /* Abstand zwischen Icon und Text anpassen */
+    }
+
+    .back-text {
+        font-size: 16px; /* Schriftgröße des Textes anpassen */
+    }
+
+        header {
+            width: 100%;
+            height: 70vh;
+            background-image: url("assets/Monster2.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fa86d7;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navigation-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fa86d7;
+            color: white;
+            cursor: pointer;
+            margin: 0 10px;
+            font-style: oblique;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation-button:hover {
+            background-color: #0056b3;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .row{
+            display:flex;
+            flex-direction: row;
+        }
+        .figure{
+            display: flex;
+            flex: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        article {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .next-image, .next-image2 {
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Farbe des Textes anpassen */
+}
+
+.next-image {
+    right: 10px;
+}
+
+.next-image2 {
+    left: 10px;
+}
+
+.next-image img, .next-image2 img {
+    width: 30px; /* Passen Sie die Größe des Pfeil-Icons nach Bedarf an */
+    height: auto;
+    margin-left: 5px; /* Abstand zwischen Text und Icon anpassen */
+}
+        
+.back-text, .back-text2 {
+    font-size: 16px; /* Beispiel: Größe für beide Texte gleich setzen */
+}
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+}
+
+.prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            transform: translateY(-50%);
+            transition: 0.6s ease;
+            user-select: none;
+        }
+        .image2 {
+            display: flex;
+            justify-content: center; /* Horizontales Zentrieren */
+            align-items: center; /* Vertikales Zentrieren */
+            height: 50vh; /* Höhe des Containers, um vertikales Zentrieren zu ermöglichen */
+        }
+
+        .image2 img {
+            max-width: 60%;
+            height: auto;
+        }
+
+
+        .prev {
+            left: 10px; /* Abstand von der linken Seite */
+        }
+
+        .next {
+            right: 10px; /* Abstand von der rechten Seite */
+        }
+
+        .prev img, .next img {
+            width: 25px; /* Größe der Pfeile */
+            height: auto;
+        }
+
+        .prev:hover img, .next:hover img {
+            filter: brightness(0.8);
+        }
+        .text-slidshow {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund für bessere Lesbarkeit */
+        }
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer small {
+            font-size: 12px;
+            color: #888;
+        }
+
+        footer a {
+            color: #fa86d7;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+        @media only screen and (max-width: 768px) {
+            .navigation-buttons {
+        flex-direction: column; /* Schaltflächen werden untereinander angeordnet */
+        align-items: center; /* Zentriert die Schaltflächen horizontal */
+    
+    }
+
+    .navigation-button {
+        margin: 5px 0; /* Platz zwischen den Schaltflächen anpassen */
+        width: 100%; /* Schaltflächen nehmen die volle Breite ein */
+        height: 50px; /* Höhe der Schaltflächen anpassen */
+        font-size: 14px;
+        width: 120px;
+        padding: 7px 15px;
+    }
+    .image2 img {
+            max-width: 100%;
+        
+        }
+        .navigation-container {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .next-image, .next-image2 {
+        position: static;
+        margin: 0 10px; /* Platz zwischen den Schaltflächen */
+    }
+
+    .next-image img, .next-image2 img {
+        margin-left: 5px; /* Abstand zwischen Text und Icon anpassen */
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <code>Hannah Flintermann, <br> Basic class digital design 2023/24</code>
+    </nav>
+    <a href="index.html" class="back-link"><img src="photos/arrow.png" alt="Back to Index">
+        <span class="back-text">Back to Main</span></a>
+
+    <header>
+        <h1> <br> <br> <br>Oma's Jugendwort Übersetzer</h1>
+        <p><code>understanding your grandkids has never been easier!</code></p>
+        <div class="navigation-buttons">
+            <a href="omas.html#section1"><button class="navigation-button">topic</button></a>
+            <a href="omas.html#section2"><button class="navigation-button">idea</button></a>
+            <a href="omas.html#section3"><button class="navigation-button">process</button></a>
+            <a href="omas.html#section4"><button class="navigation-button">takeaways</button></a>
+        </div>
+        <p> click <a href="https://omasjugendwortuebersetzer.netlify.app"> here</a> to get to the website</p>
+       
+    </header>
+    <div class="image2"><img src="photos/Unbenanntes_Projekt 68.png" alt=""></div>
+    <main>
+        <article id="section1">
+            <h2>Topic</h2>
+            <p>In the first project of the semester, we had the opportunity to gain insight into the basic concepts of training AI by getting to know “Google Teachable Machine”. Google Teachable Machine is a web-based tool that allows you to create machine learning models without needing advanced programming or knowledge in that area. 
+
+                The collection of data, the creation of a suitable setting and the evaluation process created an improved understanding of how artificial intelligence works. The user-friendliness of the tool and the ability to quickly obtain outputs make it particularly beginner-friendly. It also made very experimental projects possible because it allows for very different inputs such as sound or images. By working with Google Teachable Machine, the opportunities but also limitations of AI became clearer. The tool enables rapid prototyping and the opportunity to develop a better understanding of AI. Our task was to create a project in which the user provides an input and the AI generates an output based on the collected data. So it was initially crucial to find a topic and develop a suitable input/output concept.</p>
+        </article>
+        <article id="section2">
+            <h2>Idea</h2>
+            <p>What I found interesting was working with sound recognition. I developed the idea of identifying and translating language or words.
+
+                Thus, I developed a tool that was meant to identify "youth slang" and then translate it. My primary objective was to bridge the communication gap between different generations by developing a tool that translates modern slang into more widely understood language. If developed further, this tool could become particularly useful for many people, such as educators, parents, and anyone interested in staying updated with evolving linguistic trends. In order to limit the scope of the project, the translator was specifically designed for my grandmother. I thus, particularly used words that I frequently use in my own everyday language. </p>
+        
+        </article>
+        <article id="section3">
+            <h2>Process</h2>
+            <p>I started by creating an overview of the words and a basic wireframe for the website on Figma. What followed was the collection of a diverse set of audio clips containing different slang terms. It was an interesting experience to sit in a room full of people and repeating the words “digger” “safe” or “cringe” again, and again, and again, and again and again. The usage of slightly varying pronunciation and emphasis proved itself to be useful. The creation of a specific setting can help the AI in recognizing the data. It can be confusing for the AI if you keep changing the settings in which you record the audio clips. Because of that, I chose our classroom as a setting. Using Google Teachable Machine, the collected audio clips were uploaded and labeled with their respective translations. The platform’s user-friendly interface made it easy to create and train a sound recognition model. Training the AI to properly detect the different words turned out to be quite a challenging. 
+
+                The AI kept recognizing the wrong word, even though there were now more than 80 audio samples collected. It did mostly recognize the correct word, however after that it would just randomly detect words. As AI is mostly a black box, it can often be challenging to not really have a direct solution to the problem. Even after hours of training, the problem remained. So instead, my focus was more on the interface of the website. I integrated the final model into a user-friendly application, where the user would simply have to press the "start recording" button, and the process of the translation would be started. Users can now input slang phrases via a microphone, and the app will instantly provide a translation. Still, as of now, it had troubles recognizing the phrase. The setting (background noise etc.) could partly be responsible for this. Likewise, an even better training could, of course, lead to better results. Nevertheless, I am glad that the words are often recognized at first. </p>
+        </article>
+        <article id="section4">
+            <h2>Takeaways</h2>
+            <p>In times when AI and the use of AI are playing an increasingly important role in what seems like all areas of life, I believe deepening one's understanding of how an AI works and how it can be trained can help a lot in optimizing your own use of it. This knowledge not only empowers individuals to utilize AI more effectively, but also fosters a critical perspective on its capabilities and limitations.
+
+                Exploring AI through practical tools like Google Teachable Machine allowed me to experiment hands-on with training models, providing a tangible connection between theoretical concepts and real-world applications. It was also interesting to find a field that suited my own interests and could also potentially be of use to others. 
+                
+                Even though it was a bit frustrating at times to not get correct results, I see a lot of potential in the process of understanding what it means to train and work with AI, rather than the focus being on the perfect final result. I believe that, a learning process like this, is crucial for developing a robust comprehension of AI. 
+                
+                Moreover, grasping how AI is trained and worked with can demystify the technology, making it more accessible and less intimidating. This, in turn, can inspire more people to explore and innovate with AI, which could lead to more diverse and inclusive advancements in the field. </p>
+        </article>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="photos/wireframe.oma.png" style="width:100%">
+                <div class="text-slideshow">Wireframe 1</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="photos/wireframe.oma2.png" style="width:100%">
+                <div class="text-slideshow">Wireframe 2</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="photos/wireframe.oma.png" style="width:100%">
+                <div class="text-slideshow">Wireframe 3</div>
+            </div>
+            <!-- Add more slides as needed -->
+            <a class="prev" onclick="plusSlides(-1)"><img src="photos/arrow.png" alt="Previous"></a>
+            <a class="next" onclick="plusSlides(1)"><img src="photos/arrow.right.png" alt="Previous"></a>
+        </div>
+        <div class="navigation-container">
+            <a href="image.html" class="next-image2"> <img src="photos/arrow.png" alt="Back to Last Page">
+                <span class="back-text2">go back</span>
+               
+            </a>
+            <a href="task.html" class="next-image">
+                <span class="back-text">next page</span>
+                <img src="photos/arrow.right.png" alt="Next Page">
+            </a>
+          
+            </div>
+    </main>
+
+
+
+    <footer>
+        <small>Built with <a href="https://picocss.com">Pico</a> • <a href="index.html">Back to Main Page</a></small>
+    </footer>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>
+
+

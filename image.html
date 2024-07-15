@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omas Youth Word Translator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for this subpage */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        nav {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 1; /* Ensure the nav menu is above the header */
+        }
+        .back-link {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333; /* Farbe des Textes anpassen */
+    }
+
+    .back-link img {
+        width: 30px; /* Passen Sie die Größe des Pfeil-Icons nach Bedarf an */
+        height: auto;
+        margin-right: 5px; /* Abstand zwischen Icon und Text anpassen */
+    }
+
+    .back-text {
+        font-size: 16px; /* Schriftgröße des Textes anpassen */
+    }
+
+        header {
+            width: 100%;
+            height: 70vh;
+            background-image: url("assets/Monster2.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fa86d7;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navigation-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fa86d7;
+            color: white;
+            cursor: pointer;
+            margin: 0 10px;
+            font-style: oblique;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation-button:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        article {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .image2 {
+            display: flex;
+            justify-content: center; /* Horizontales Zentrieren */
+            align-items: center; /* Vertikales Zentrieren */
+            height: 50vh; /* Höhe des Containers, um vertikales Zentrieren zu ermöglichen */
+        }
+
+        .image2 img {
+            max-width: 40%;
+            height: auto;
+        }
+        .next-image, .next-image2 {
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Farbe des Textes anpassen */
+}
+
+.next-image {
+    right: 10px;
+}
+
+.next-image2 {
+    left: 10px;
+}
+
+.next-image img, .next-image2 img {
+    width: 30px; /* Passen Sie die Größe des Pfeil-Icons nach Bedarf an */
+    height: auto;
+    margin-left: 5px; /* Abstand zwischen Text und Icon anpassen */
+}
+        
+.back-text, .back-text2 {
+    font-size: 16px; /* Beispiel: Größe für beide Texte gleich setzen */
+}
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+}
+
+.prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            transform: translateY(-50%);
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        .prev {
+            left: 10px; /* Abstand von der linken Seite */
+        }
+
+        .next {
+            right: 10px; /* Abstand von der rechten Seite */
+        }
+
+        .prev img, .next img {
+            width: 25px; /* Größe der Pfeile */
+            height: auto;
+        }
+
+        .prev:hover img, .next:hover img {
+            filter: brightness(0.8);
+        }
+        .text-slidshow {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund für bessere Lesbarkeit */
+        }
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer small {
+            font-size: 12px;
+            color: #888;
+        }
+
+        footer a {
+            color: #fa86d7;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+        @media only screen and (max-width: 768px) {
+    .navigation-buttons {
+        flex-direction: column; /* Schaltflächen werden untereinander angeordnet */
+        align-items: center; /* Zentriert die Schaltflächen horizontal */
+    
+    }
+
+    .navigation-button {
+        margin: 5px 0; /* Platz zwischen den Schaltflächen anpassen */
+        width: 100%; /* Schaltflächen nehmen die volle Breite ein */
+        height: 50px; /* Höhe der Schaltflächen anpassen */
+        font-size: 14px;
+        width: 120px;
+        padding: 7px 15px;
+    }
+    .navigation-container {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .image2 img {
+            max-width: 100%;
+        
+        }
+
+    .next-image, .next-image2 {
+        position: static;
+        margin: 0 10px; /* Platz zwischen den Schaltflächen */
+    }
+
+    .next-image img, .next-image2 img {
+        margin-left: 5px; /* Abstand zwischen Text und Icon anpassen */
+    }}
+    </style>
+</head>
+<body>
+    <nav>
+        <code>Hannah Flintermann, <br> Basic class digital design 2023/24</code>
+    </nav>
+    <a href="index.html" class="back-link"><img src="photos/arrow.png" alt="Back to Index">
+        <span class="back-text">Back to Main</span></a>
+
+
+    <header>
+        <h1> <br> <br> <br>Image Generation</h1>
+        <p><code>cocreating with Adobe Firefly</code></p>
+        <div class="navigation-buttons">
+            <a href="image.html#section1"><button class="navigation-button">topic</button></a>
+            <a href="image.html#section2"><button class="navigation-button">idea</button></a>
+            <a href="image.html#section3"><button class="navigation-button">process</button></a>
+            <a href="image.html#section4"><button class="navigation-button">takeaways</button></a>
+        </div>
+
+        <p> click <a href="https://generated-ai-story.netlify.app"> here</a> to get to the website</p>
+    </header>
+    <div class="image2"><img src="photos/Unbenanntes_Projekt 14.gif" alt=""></div>
+    <main>
+        <article id="section1">
+            <h2>Topic</h2>
+            <p>Especially as future designers, the topic of image generation with AI of high relevance now and that will increase even further in the future. The question remains the same: How can we take advantage of the opportunities offered by AI? Control AI and use it to benefit our own creative ideas? Develop a vision and convey it accurately so that the result is continually optimized. 
+
+                In an era where artificial intelligence is transforming the creative landscape significantly, it has become crucial for future designers to engage with AI image generation and deepen their understanding of it. AI tools like image generators are not just innovative; they are reshaping how we conceptualize and create visual content. For future designers, mastering these technologies can mean unlocking new creative possibilities, streamlining workflows, and, most of all, wanting competitive in a rapidly evolving industry. AI-generated images can help reduce workload and increase efficiency. For example, prototypes can be created quickly and concepts that are difficult to implement can be visualized in minutes or seconds. Acquiring the right skill set to provide the AI with appropriate prompts for generation is therefore a central task in our future. In the last project this semester, the focus was exactly this; to create an improved understanding of the use of AI to generate image content. The aim was to tell a story in pictures; to create a uniform design that looks cohesive. There were no limits to the creative possibilities here.</p>
+        </article>
+        <article id="section2">
+            <h2>Idea</h2>
+            <p>The project should take place as group work. So we first collected ideas and developed a rough storyline. The central idea was to develop a story around some of the experiences on the course trip. After the rough keywords were written down, they were being passed back to the AI (ChatGPT). So the entire project is basically based on a continuous “collaboration” between the AI and us. The output narrative was then revised and optimized, ideas for the style of the story were  collected and lastly reference images were chosen. The agreement on a style and color scheme (black/white) were crucial for the successful image generation.</p>
+        </article>
+        <article id="section3">
+            <h2>Process</h2>
+            <p>After the storyline was set, it was time to generate the images. First of all, choosing a suitable AI program was crucial: Initially, based on Fabian's recommendation, we wanted to work with GPT 4, but due to various circumstances this was not possible, which is why we agreed to use Adobe Firefly. For the most part this worked quite well, but in some cases it was difficult to create a consistent design. This problem could be partially circumvented by using sample images in the “style” or “texture” section. Generating characters that looked the same was a big problem because the features such as hair or facial features always varied greatly despite uniform prompts and references to the style. Thus, it was only possible to convey a uniform image of the people shown to a limited extent. For given reasons, we decided to only show details such as the back, hair or legs. Adobe Firefly's ability to provide prompt input as well as various choices for style, texture, color, light, or perspective were very helpful in creating a largely consistent design. It makes sense to define reference images and a light/color scheme beforehand in order to make the images appear as uniform as possible. We assigned a rough image idea to each text section, which we then divided among each other. Some ideas were more difficult to implement than others, so you had to remain flexible and not insist too much on the actual idea. Fingers, faces and more complex compositions particularly caused problems for the AI. What I found exciting was the function of being able to edit the generated images further and further generate individual areas. The images were collected in a common group, organized and, in some cases, minimally post-processed. Overall, significantly more image material was generated than was needed for the storyline; a big advantage of working with AI. A selection of the best images was therefore made.
+
+                To present the finished project, I incorporated the images and text elements into a website. Flex box was used for this to create a varied, interesting layout. Flex box is a CSS layout module designed to simplify and improve the design and structure of website content. It allows for efficient and flexible arrangement of elements within a container by providing various ways in which these elements can be positioned, aligned and arranged within the container.</p>
+        </article>
+        <article id="section4">
+            <h2>Takeaways</h2>
+            <p>All in all, I'm happy with the project, even if the storyline seems a bit arbitrary, I think the style of the images generated seems mostly consistent. I think that the appearance of the characters in particular still has potential for improvement. It would also be exciting to move away from black and white a little and incorporate colors. I find the opportunity to put capacity and time into working and understanding generative AI extremely sensible and right. Since it is largely a black box, the principle of “learning by doing” still applies. Mastering programs like these and continuing to engage with them will play a crucial role in our future as designers. The project also made the advantages and disadvantages of AI programs clearer. The AI works efficiently and within seconds, the visualization of ideas takes significantly less time. More important than the creative process is the creative thought itself and the transmission of it in language. But the boundaries also became clearer; Often ideas can only be implemented to a limited extent, the AI still has major problems with faces or hands and the quality of the results has not (yet) reached the level of real drawings and sketches. Of course, that can change in the future. The project made it clear to me how important it is to stay on the ball when it comes to working with AI; to be aware of your resources and to practice communicating your own ideas.</p>
+        </article>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="photos/Story2.jpg" style="width:100%">
+                <div class="text-slideshow">Bleona making jokes</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="photos/Story17.jpg" style="width:100%">
+                <div class="text-slideshow">Phil taking a moment to calm down</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="photos/Story18.jpg" style="width:100%">
+                <div class="text-slideshow">The ritual</div>
+            </div>
+            <div class="mySlides fade">
+                <img src="photos/Story20.jpg" style="width:100%">
+                <div class="text-slideshow">The students taking notes</div>
+            </div>
+            <!-- Add more slides as needed -->
+            <a class="prev" onclick="plusSlides(-1)"><img src="photos/arrow.png" alt="Previous"></a>
+            <a class="next" onclick="plusSlides(1)"><img src="photos/arrow.right.png" alt="Previous"></a>
+        </div>
+        <div class="navigation-container">
+            <a href="task.html" class="next-image2"> <img src="photos/arrow.png" alt="Back to Last Page">
+                <span class="back-text2">go back</span>
+               
+            </a>
+            <a href="omas.html" class="next-image">
+                <span class="back-text">next page</span>
+                <img src="photos/arrow.right.png" alt="Next Page">
+            </a>
+          
+            </div>
+    </main>
+
+    <footer>
+        <small>Built with <a href="https://picocss.com">Pico</a> • <a href="index.html">Back to Main Page</a></small>
+    </footer>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>
