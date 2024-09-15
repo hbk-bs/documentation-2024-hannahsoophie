@@ -1,14 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-	<h1>make me your own!</h1>
-	<script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hannah Flintermann Documentation WiSe 2023 </title>
+	<link rel="icon" href="photos/favicon.ico.png" type="image/x-icon">
+
+    <meta
+      name="description"
+      content="Just a pure semantic HTML markup, without .classes.  Built with Pico CSS."
+    />
+    <script>
+  
+   
+    </script>
+	  <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<link rel="stylesheet" href="style.css">
+    <!-- Pico.css (Classless version) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+		<link rel="stylesheet" href="style.css">
+        
+  </head>
+
+  <body>
+
+    <nav> <code> Hannah Flintermann, <br> class of digital design 2023/24 </code>
+</nav>
+
+    <!-- Header -->
+    <header>
+        <hgroup>
+            <div class="column">
+                <img src="photos/Unbenanntes_Projekt 9.gif" alt="" class="image1">
+          <h1>Documentation <br>
+        
+          Digital Design</h1>
+        </div>
+          
+      <div id="timed-text"> </div> 
+         
+          <p><code> learn more about... </code></p>
+          <div id="extra-buttons-container" class="hidden">
+            <a href="omas.html"><button id="extra-button-1">Omas Jugendwort Übersetzer</button></a>
+          <a href="task.html"><button id="extra-button-2">Random Task Generator</button></a>
+          <a href="image.html"><button id="extra-button-3">Image Creation</button></a>
+         
+        </div>
+              
+        </hgroup>
+  </header>
+   
+              <style>
+                @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        #timed-text {
+            font-size: 20px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+        }
+        #extra-button-1, #extra-button-2, #extra-button-3, #extra-button-4 {
+            width: 160px;
+            height: 100px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 0px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fa86d7;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  font-style: oblique;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#extra-buttons-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 10px;
+      }
+      #extra-buttons-container a {
+    flex: 1 0 21%; 
+    justify-content: center;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+                 nav {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 60px;
+      }
+                header {
+   width: 100%; 
+   height: 100vh;
+        background-image: url("assets/Monster2.png");
+        background-size: cover;
+        background-position: center;
+
+}
+hgroup {
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 6s forwards;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+#image1{
+    margin-top: 0px;
+        margin-bottom: 0px;
+        width: 90%; /* Adjust as needed */
+       /* Adjust as needed */
+}
+                .logo{
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  width: 200px;
+  z-index: 1;
+}
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust as needed */
+    margin: 0;
+  }
+
+.animation{
+  width: 400px;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping onto new lines */
+}
+
+.image-container img {
+  margin-right: 10px; /* Optional: Add some space between images */
+}
+
+.image-container2 figcaption {
+  text-align: center; /* Zentriert den Text */
+}
+
+
+article img {
+  display: block;
+  margin: 0 auto;
+}
+
+.image-container2 {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.image-container2 img {
+  margin-right: 0px; /* Optional: Add some space between images */
+  margin-left: 0px;
+}
+
+
+h1{
+    font-size: 50px;
+    color: rgb(249, 133, 191);
+}
+h2{
+    font-size: 70px;
+    margin-top: 5px;
+    color: rgb(255, 159, 127);
+}
+h3{
+    font-size: 50px;
+    margin-top: 5px;
+    color: rgb(33, 31, 31);
+}
+h4{
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+h5{
+  font-size: 20px;
+    margin-top: 10px;
+    color: rgb(57, 54, 54);
+}
+blockquote {
+  background-color: #fdede0; 
+  padding: 10px; 
+}
+footer {
+    margin-top: 300px; /* Erhöhen Sie den Abstand nach Bedarf */
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        margin-top: 300px; /* Erhöhen Sie den Abstand nach Bedarf */
+        margin-bottom: 20px;
+    }
+  
+  .logo {
+    position: relative; /* Change position to relative */
+    top: auto;
+    left: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    max-width: 100px;
+    z-index: 1;
+  }
+
+
+   
+    button {
+        size: 60%;
+        font-size: 14px; 
+    }
+  nav {
+    position: relative; /* Change position to relative */
+    top: auto;
+    right: auto;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  hgroup {
+    position: relative; 
+    left: auto;
+    top: auto;
+    transform: none;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  header {
+    margin-top: 0px; 
+  }
+
+  
+  #article0 {
+    margin-top: 250px;
+  }
+  article {
+    margin-top: 50px;
+  }
+
+  h3 {
+    margin-top: 50px; 
+  }
+}
+    </style>
+    <script>
+        
+        const texts = [
+            "Hi there!",
+            "I'm happy to have you here...",
+            "my name is Hannah...",
+            "and I invite you...",
+            "to follow me on my journey of...",
+            "learning about digital design"
+        ];
+
+        let currentIndex = 0;
+
+        function changeText() {
+            const timedTextElement = document.getElementById('timed-text');
+            timedTextElement.style.opacity = 0; // Start by making the text invisible
+
+            // After a short delay, change the text and fade it in
+            setTimeout(() => {
+                timedTextElement.textContent = texts[currentIndex];
+                timedTextElement.style.opacity = 1; // Fade in the new text
+                currentIndex = (currentIndex + 1) % texts.length;
+            }, 500); // Delay for the fade-out effect
+
+            // Schedule the next text change
+            setTimeout(changeText, 2000); // Change text every 3 seconds
+        }
+
+        // Initialize the timed text change
+        document.addEventListener('DOMContentLoaded', changeText);
+    </script>
+    <script>
+      function toggleContent(articleId) {
+        var content = document.getElementById(articleId + "Content");
+        if (content.style.display === "none") {
+          content.style.display = "block";
+        } else {
+          content.style.display = "none";
+        }
+      }
+    </script>
+     <footer> <small>Built with <a href="https://picocss.com">Pico</a> • <a href="https://github.com/picocss/examples/blob/master/v1-classless/index.html">Source code</a></small> </footer> <!-- ./ Footer --> <!-- Minimal theme switcher -->
+  </body>
 </html>
