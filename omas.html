@@ -112,6 +112,11 @@
 
         article {
             margin-bottom: 40px;
+    max-width: 800px; /* Default max-width for larger screens */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Innenabstand für etwas Platz um den Text */
+    box-sizing: border-box; /* Stellt sicher, dass das Padding nicht die Gesamtbreite überschreitet */
         }
 
         h1 {
@@ -257,6 +262,11 @@
             opacity: 0.7;
         }
         @media only screen and (max-width: 768px) {
+            article {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px; /* Reduzierter Innenabstand auf kleineren Bildschirmen */
+    }
+
             .navigation-buttons {
         flex-direction: column; /* Schaltflächen werden untereinander angeordnet */
         align-items: center; /* Zentriert die Schaltflächen horizontal */
@@ -316,32 +326,54 @@
     <main>
         <article id="section1">
             <h2>Topic</h2>
-            <p>In the first project of the semester, we had the opportunity to gain insight into the basic concepts of training AI by getting to know “Google Teachable Machine”. Google Teachable Machine is a web-based tool that allows you to create machine learning models without needing advanced programming or knowledge in that area. 
+            <p>In the first project of the semester, the focus was gaining an insight into the basic concepts of training AI through the tool “Google Teachable Machine”. 
+                
+                <h4><strong><bold> What is Google Teachable Machine? </bold></strong></h4>
+                
+                Google Teachable Machine is a web-based tool that allows you to create machine learning models without needing advanced programming or knowledge in that area. 
 
-                The collection of data, the creation of a suitable setting and the evaluation process created an improved understanding of how artificial intelligence works. The user-friendliness of the tool and the ability to quickly obtain outputs make it particularly beginner-friendly. It also made very experimental projects possible because it allows for very different inputs such as sound or images. By working with Google Teachable Machine, the opportunities but also limitations of AI became clearer. The tool enables rapid prototyping and the opportunity to develop a better understanding of AI. Our task was to create a project in which the user provides an input and the AI generates an output based on the collected data. So it was initially crucial to find a topic and develop a suitable input/output concept.</p>
+                The collection of data, the creation of a suitable setting and the evaluation process created an improved understanding of how artificial intelligence works. The user-friendliness of the tool and the ability to quickly obtain outputs makes it particularly beginner-friendly. It enables the user to create very experimental projects possible because it allows for very different inputs such as sound or images. By working with Google Teachable Machine, the opportunities but also limitations of AI become clearer. The tool allows rapid prototyping and the opportunity to develop a better understanding of AI. The Project "Omas Jugendwortübersetzer", emphasizes the advantages as well as the disadvantages when it comes to working with Google Teachable Machiene. As the tool works with an input provided by the user and the AI generates an output based on the collected data.</p>
         </article>
+       
+        <row> <img src="photos/Google2.png" alt="">
+            <h4>Google Teachable Machine Webview</h4>
+            <p>Creating an input/output concept is initially crucial when working with Google Teachable Machine.</p>
+            
+             <img src="photos/Google1.png" alt="">
+             <h4> Sound Recogniction  </h4>
+             <p>The collection of audio samples allows the tool to identify sounds.</p></row>
         <article id="section2">
             <h2>Idea</h2>
-            <p>What I found interesting was working with sound recognition. I developed the idea of identifying and translating language or words.
+            <p>A sound recognition tool was developed with the goal of identifying and translating modern language or slang. The primary objective was to bridge the communication gap between different generations by translating contemporary youth slang into more widely understood language. This tool, if further refined, could prove useful to various groups, including educators, parents, and individuals interested in staying informed about evolving linguistic trends.
 
-                Thus, I developed a tool that was meant to identify "youth slang" and then translate it. My primary objective was to bridge the communication gap between different generations by developing a tool that translates modern slang into more widely understood language. If developed further, this tool could become particularly useful for many people, such as educators, parents, and anyone interested in staying updated with evolving linguistic trends. In order to limit the scope of the project, the translator was specifically designed for my grandmother. I thus, particularly used words that I frequently use in my own everyday language. </p>
-        
+                To focus the project's scope, the translator was tailored specifically for a personal use case, designed for communication with an elderly family member. The slang terms incorporated into the tool were selected based on their frequent use in the developer's everyday speech.</p>
         </article>
+      
         <article id="section3">
             <h2>Process</h2>
-            <p>I started by creating an overview of the words and a basic wireframe for the website on Figma. What followed was the collection of a diverse set of audio clips containing different slang terms. It was an interesting experience to sit in a room full of people and repeating the words “digger” “safe” or “cringe” again, and again, and again, and again and again. The usage of slightly varying pronunciation and emphasis proved itself to be useful. The creation of a specific setting can help the AI in recognizing the data. It can be confusing for the AI if you keep changing the settings in which you record the audio clips. Because of that, I chose our classroom as a setting. Using Google Teachable Machine, the collected audio clips were uploaded and labeled with their respective translations. The platform’s user-friendly interface made it easy to create and train a sound recognition model. Training the AI to properly detect the different words turned out to be quite a challenging. 
+            <p>The project began with the creation of a word overview and a basic website wireframe using Figma. The next phase involved gathering a diverse collection of audio clips featuring different slang terms. The process of repeatedly recording terms such as “digger,” “safe,” and “cringe” provided insights into the impact of slight variations in pronunciation and emphasis. These variations proved beneficial in training the model, highlighting the importance of consistency in the recording environment. To maintain such consistency, a classroom was selected as the designated setting, as changing environments during recording sessions can confuse the AI during sound recognition.
 
-                The AI kept recognizing the wrong word, even though there were now more than 80 audio samples collected. It did mostly recognize the correct word, however after that it would just randomly detect words. As AI is mostly a black box, it can often be challenging to not really have a direct solution to the problem. Even after hours of training, the problem remained. So instead, my focus was more on the interface of the website. I integrated the final model into a user-friendly application, where the user would simply have to press the "start recording" button, and the process of the translation would be started. Users can now input slang phrases via a microphone, and the app will instantly provide a translation. Still, as of now, it had troubles recognizing the phrase. The setting (background noise etc.) could partly be responsible for this. Likewise, an even better training could, of course, lead to better results. Nevertheless, I am glad that the words are often recognized at first. </p>
+                Using Google Teachable Machine, the collected audio clips were uploaded and labeled with their respective translations. The platform’s intuitive interface facilitated the creation and training of a sound recognition model. 
+                <h4> <strong>Challenges</strong> </h4> However, training the AI to accurately detect the words presented significant challenges. Despite over 80 audio samples, the AI frequently misidentified words. While it could initially recognize the correct word, it would later randomly detect other words, reflecting the inherent difficulties of working with AI, often described as a "black box" due to the opacity of its inner workings.
+                
+                After extensive training efforts failed to resolve these issues, the focus shifted to improving the website interface. The final model was integrated into a user-friendly application, allowing users to press a "start recording" button to begin the translation process. Although the application could often recognize slang phrases when spoken into a microphone, recognition issues persisted. Background noise and further training likely contributed to these difficulties. Nonetheless, the model successfully recognized many phrases on the first attempt, offering a promising step toward more accurate and reliable results. </p>
         </article>
+        <row> <img src="photos/Oma1.png" alt="">
+            <h4>The webview of "Omas Jugendwort Übersetzer"</h4>
+            <p>The tool was implemented into an easily accessible interface design</p>
+            
+             <img src="photos/Oma2.png" alt="">
+             <h4>Audiosamples and their translations</h4>
+             <p>Frequently used youth slang words were identified and collected.</p></row>
         <article id="section4">
             <h2>Takeaways</h2>
-            <p>In times when AI and the use of AI are playing an increasingly important role in what seems like all areas of life, I believe deepening one's understanding of how an AI works and how it can be trained can help a lot in optimizing your own use of it. This knowledge not only empowers individuals to utilize AI more effectively, but also fosters a critical perspective on its capabilities and limitations.
+            <p>As AI increasingly permeates various aspects of life, gaining a deeper understanding of how it functions and can be trained is becoming crucial for optimizing its use. This knowledge empowers individuals to leverage AI more effectively while also fostering a critical awareness of its capabilities and limitations.
 
-                Exploring AI through practical tools like Google Teachable Machine allowed me to experiment hands-on with training models, providing a tangible connection between theoretical concepts and real-world applications. It was also interesting to find a field that suited my own interests and could also potentially be of use to others. 
+                Engaging with practical tools such as Google Teachable Machine offers a hands-on opportunity to explore AI training, bridging the gap between theoretical knowledge and real-world applications. This approach not only aligns with individual interests but also holds the potential to benefit a broader audience.
                 
-                Even though it was a bit frustrating at times to not get correct results, I see a lot of potential in the process of understanding what it means to train and work with AI, rather than the focus being on the perfect final result. I believe that, a learning process like this, is crucial for developing a robust comprehension of AI. 
+                While the process of working with AI may sometimes lead to frustration due to inaccurate results, it highlights the value of focusing on the learning process rather than striving for immediate perfection. Such experiences contribute significantly to building a robust understanding of AI, as the emphasis shifts to learning how to train and work with the technology effectively.
                 
-                Moreover, grasping how AI is trained and worked with can demystify the technology, making it more accessible and less intimidating. This, in turn, can inspire more people to explore and innovate with AI, which could lead to more diverse and inclusive advancements in the field. </p>
+                Furthermore, understanding the intricacies of AI training helps to demystify the technology, making it more approachable and less intimidating. This, in turn, can encourage wider participation in AI exploration and innovation, potentially driving more diverse and inclusive advancements in the field. </p>
         </article>
         <div class="slideshow-container">
             <div class="mySlides fade">

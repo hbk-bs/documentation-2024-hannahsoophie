@@ -120,9 +120,13 @@
             margin: 0 auto;
             padding: 20px;
         }
-
         article {
             margin-bottom: 40px;
+    max-width: 800px; /* Default max-width for larger screens */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Innenabstand für etwas Platz um den Text */
+    box-sizing: border-box; /* Stellt sicher, dass das Padding nicht die Gesamtbreite überschreitet */
         }
 
         h1 {
@@ -242,6 +246,11 @@
             opacity: 0.7;
         }
         @media only screen and (max-width: 768px) {
+            article {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px; /* Reduzierter Innenabstand auf kleineren Bildschirmen */
+    }
+
             .navigation-buttons {
         flex-direction: column; /* Schaltflächen werden untereinander angeordnet */
         align-items: center; /* Zentriert die Schaltflächen horizontal */
@@ -302,19 +311,33 @@
     <main>
         <article id="section1">
             <h2>Topic</h2>
-            <p>Working with ollama turned out to be interesting in many ways. Ollama is an AI-powered tool used to generate text and content. It uses advanced language models to automatically generate content based on given prompts. In preparation for working with the tool, we had a discussion within the class on the topic of opportunities and risks of AI, which further illustrated to me the value and importance of dealing with the topic of AI. This type of AI tool can be used in a wide variety of areas. We use it primarily to prototype our project ideas and to learn more efficient “prompt engineering”. The project made it possible to develop completely new ideas for projects that arose through the use of AI.</p>
+            <p>Working with Ollama proved to be insightful in various ways. It helps the user to attain an improved understanding of the concept of large language models. Ollama provides an open source platform to simplify the installisation of LLMs on a local systems. By that the user can generate text based on prompts, offering insights into how the models interpret language, process inputs, and produce outputs.
+                <h4><strong>What is a large language model?</strong></h4> A Large Language Model (LLM) is an advanced type of artificial intelligence trained on vast amounts of text data to understand, generate, and manipulate natural language. These models, such as GPT, are capable of completing a wide variety of language-related tasks, including answering questions, generating content, and even translating languages. They contain billions of parameters, which allow them to recognize complex linguistic patterns and provide contextually relevant responses.
+                <h4><strong>What is Ollama?</strong></h4> Ollama is an AI-powered tool designed to generate text and content using advanced language models that respond to user-provided prompts. Prior to engaging with the tool, a class discussion on the opportunities and risks associated with AI highlighted the importance of understanding and addressing this technology critically.
+
+                Ollama’s applications extend across a wide range of fields. In this context, it was primarily utilized for prototyping project ideas and enhancing skills in "prompt engineering." The project facilitated the development of entirely new concepts, demonstrating how AI tools like Ollama can inspire innovative approaches and ideas that may not have been considered otherwise.</p>
         </article>
+        <row> <img src="photos/Ollama1.png" alt="">
+            <h4>Ollama Webview</h4>
+          </row>
         <article id="section2">
             <h2>Idea</h2>
-            <p>As I had previously watched a documentary about our increasing need for self-optimization and the desire to constantly be productive in our society, I decided that it could be interesting to turn the whole concept of "to-dos" around and thus to create a generative task assigner that would give you one completely useless and totally random task a day. By building a prompt that would allow the tool to create one task a day that was manageable in the near environment, the goal was to inspire the user to return to a childlike, imaginative state, in which things do not always have to have a deeper sense in order to be important to us.  </p>
+            <p>After viewing a documentary on society's increasing focus on self-optimization and the constant drive for productivity, the concept of reversing the conventional "to-do" list was explored. This led to the development of a generative task assigner designed to provide users with one completely random and seemingly useless task each day. The task generation process was based on a prompt that ensured the task was simple and achievable within the user's immediate environment. The objective of this tool was to encourage users to reconnect with a childlike, imaginative mindset, where activities need not have a deeper purpose to be valued or meaningful.</p>
         </article>
+        <row> <img src="photos/Figma Ollama.png" alt="">
+            <h4>Developement of the idea on Figma</h4>
+          </row>
         <article id="section3">
             <h2>Process</h2>
-            <p>I started out with prompt engineering and learning how to work with Ollama. It was sometimes quite experimental, as AI is mostly a black box, and you don't always know exactly what is happening inside. The AI could recognize certain special characters, and giving out examples also worked quite well. Fabian explained that it helps to really just experiment with which words and phrases would work particularly well. I ended up with quite a long prompt, intending for a random task that was supposed to be childlike, creative, and also realistic (set in the user's close environment and able to be successfully completed within up to 5 minutes). Adding examples also turned out to be very useful. Furthermore, I added a button where the user could choose their mood of the day, which would then be included in the prompt. The task would match or reflect the mood of the day. This could make the whole concept slightly more interactive. The quality of the results vary, but overall I am very happy with the result.</p>
+            <p>The project began with prompt engineering and the process of learning to work with Ollama. This phase involved a degree of experimentation due to the opaque nature of AI systems, which often operate as a "black box" with uncertain internal processes. The AI was capable of recognizing certain special characters, and providing examples was found to be an effective strategy. It was noted that experimenting with different words and phrases was crucial for optimizing performance.
+
+                The final prompt was developed to generate a random task that was childlike, creative, and realistic, ensuring it was achievable within the user's immediate environment and could be completed in under five minutes. Incorporating examples proved to be highly beneficial. Additionally, a feature was implemented allowing users to select their mood for the day, which would be factored into the task generation, aiming to make the interaction more engaging. While the quality of the generated tasks varied, the overall outcome was deemed satisfactory. To ensure the accesibility of the project independently from the local server, by the end, the project was run by OpenAI GPT 3.5 rather than a local LLM. </p>
         </article>
         <article id="section4">
             <h2>Takeaways</h2>
-            <p>I was glad to have had the opportunity to create something so absurd and to have the space and capacity to realize a project like this. It was a motivation to see how diverse and experimental projects with AI can look like. This being said, I now recognize how AI can be used as a new approach for creativity and not just a threat. I felt that it had improved my understanding of working with AI. Our conversation about the risks and potentials of AI was particularly interesting to me, as the topic is of high importance for our current society and also for our futures working in the creative field. Though there of course are many files and areas in which the usage of AI could have a very positive impact, the risks and projects that are being developed right now, were very shocking to me as I prepared for the discussion. Especially the input on our data security and how our images could potentially be used as AI training data, was very distressing for me. I very much valued Fabians impact on the discussion, and it gave me a new sense as to why what we do has an important value for us, even if we don't feel like working in the coding scene later on. I would have enjoyed the opportunity for this discussion much earlier on, because it gives important information about the political importance of knowing how the web is build.</p>
+            <p>The opportunity to undertake such an unconventional project was highly valued, as it demonstrated the potential for AI to support diverse and experimental endeavors. This experience highlighted AI's role not only as a tool for creativity but also as a significant factor in reshaping creative processes. It contributed to a deeper understanding of working with AI and its implications.
+
+                The discussion on the risks and potentials of AI was particularly insightful, given its relevance to contemporary society and future roles in the creative sector. While AI has the potential to bring positive impacts across various fields, the risks associated with its current applications, particularly concerning data security and the use of personal images for AI training, were concerning. Fabian's contributions to the discussion were especially appreciated, providing valuable perspectives on the significance of understanding AI's broader implications. This dialogue underscored the importance of awareness regarding the political and societal impact of digital technologies, which would have been beneficial to explore earlier in the project.</p>
         </article>
         <div class="slideshow-container">
             <div class="mySlides fade">
